@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Algorytmy Sortujące</title>
+    <link rel="icon" href="Logo2.png">
+</head>
+<body>
+    <div class="topbar">
+        <img class="logo" src="Logo2.png">
+    </div>
+    
+    <span class="a"></span>
+    <div class="sidebar">
+        <a href="index.html">Start</a>
+        <a href="bubble_sort.html">Sortowanie Bąbelkowe</a>
+        <a href="combsort.html">Sortowanie Grzebieniowe</a>
+        <a href="insertion_sort.html">Sortowanie przez Wstawianie</a>
+        <a href="selection_sort.html">Sortowanie przez Wybieranie</a>
+        <a href="heapsort.html">Sortowanie przez Kopcowanie</a>
+        <a href="merge_sort.html">Sortowanie przez Scalanie</a>
+        <a href="quick_sort.html">Sortowanie Szybkie</a>
+        <a class="active" href="shell_sort.html">Sortowanie Shella</a>
+        <a href="introsort.html">Sortowanie Introspektywne</a>
+    </div>
+
+    <div class="maincontent">
+        <h1>
+            Sortowanie Shella
+        </h1>
+        <h2>
+            (ang. Shellsort)
+        </h2>
+        <p>
+            Genezą powstania sortowania Shella była obserwacja, 
+            że algorytm sortowania przez wstawianie działa szybko 
+            dla tablic prawie uporządkowanych. Shell sort działa 
+            następująco: wybieramy pewien odstęp h, dzielimy tablice 
+            na zbiory których elementy są od siebie oddalone o h, 
+            sortujemy każdy z nich insertion sortem, zmniejszamy odstęp 
+            i powtarzamy procedurę, dopóki odstęp nie będzie równy 1 
+            (wtedy wykona się zwykłe sortowanie przez wstawianie, 
+            jednak ciąg będzie w znacznym stopniu posortowany). 
+        </p>
+        <p>
+            Bardzo ważne pytanie brzmi jak wybrać odstępy? Sam Shell 
+            zaproponował aby na początku h=n/2, i przy zmniejszaniu 
+            ustawiać h=h/2. Jak się okazuje jest to jeden z najgorszych 
+            wyborów który prowadzi do kwadratowej złożoności obliczeniowej. 
+            Od tamtej pory powstało wiele ciągów odstępów, jednym z najpopularniejszych 
+            jest ten zaproponowany przez Knutha: h1=1, h<sub>i</sub>=3h<sub>i-1</sub>+1, 
+            jego początkowe wyrazy to 1, 4, 13, 40, 121, 364. Jako 
+            pierwszy odstęp wybieramy największy element h z ciągu mniejszy od n/3. 
+            Na przykład dla tablicy długości 1000 wywołamy Shell sort z odstępami 
+            121, 40, 13, 4, 1. Okazuje się że taki dobór elementów daje średni czas 
+            działania algorytmu rzędu O(n<sup>1.25</sup>).
+        </p>
+        <div style="width: 60%; margin: 0 auto;">
+        <table>
+            <tr>
+                <th><h3>Zalety</h3></th>
+                <th><h3>Wady</h3></th>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li>szybki</li>
+                        <li>w miejscu</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>niestabilny</li>
+                        <li>skomplikowany</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+        <canvas id="animationCanvas"></canvas>
+        <br>
+        <div>
+            <button class="button1" onclick="Pause()">||</button>
+            <button class="button1" onclick="Advance()">►</button>
+            <button class="button1" onclick="ContinueAnimation()">►►</button>
+            <button class="button1" onclick="ContinueAnimationFast()">►►►</button>
+            <div style="width: 120x; height: 5px; display: inline-block; margin-left:290px"></div>
+            <div class="prawy">
+                <button class="button1" onClick="setMalo()">Mało</button>
+                <button class="button1" onclick="setDuzo()">Dużo</button>
+                <button class="button1" onclick="setBardzoDuzo()">Bardzo dużo</button>
+            </div>
+            <br>
+            <button class="button1" onclick="setRandom()">Losowo</button>
+            <button class="button1" onclick="setSorted()">Posortowany</button>
+            <button class="button1" onclick="setInverted()">Odwrotnie Posortowany</button>
+            <div style="width: 120x; height: 5px; display: inline-block; margin-left:30px"></div>
+            <div class="prawy">
+                <button class="button1" onclick="setSlupki()">Słupki</button>
+                <button class="button1" onclick="setPunkty()">Punkty</button>
+            </div>
+            <br>
+            <button class="button1" onclick="setShellGap()">Metoda Shella</button>
+            <button class="button1" onclick="setKnuthGap()">Metoda Knutha</button>
+        </div>
+        <h3 id="p1">Liczba operacji: 0</h3>
+        <h3 id="gapText">h: 0</h3>
+    </div>
+    <script src="animationObjects.js"></script>
+    <script src="algorithms.js"></script>
+    <script src="shellSort.js"></script>
+    <script src="animationBasic.js"></script>
+</body>
+</html>
