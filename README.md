@@ -2,8 +2,8 @@
 
 Welcome to the Sorting Algorithms Visualized! This interactive web application allows you to explore various sorting algorithms with visualizations. You can choose from different options for animation playback and algorithm simulation.
 
-![Screenshot 2](/screenshots/screenshot1.jpg?raw=true "Screenshot 2")
-![Screenshot 2](/screenshots/screenshot2.jpg?raw=true "Screenshot 2")
+![Screenshot 2](/screenshots/screenshot1.png?raw=true "Screenshot 2")
+![Screenshot 2](/screenshots/screenshot2.png?raw=true "Screenshot 2")
 
 ## Features
 
